@@ -1,0 +1,6 @@
+if SHIELD_PIN_TESTER
+
+config ZMK_KEYBOARD_NAME
+    default "Pin Tester"
+
+endif

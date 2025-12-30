@@ -1,0 +1,3 @@
+config BOARD_TOPNANO
+    bool "TopNano"
+    depends on SOC_NRF52840_QIAA
