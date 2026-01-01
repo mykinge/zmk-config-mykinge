@@ -2,5 +2,5 @@
 # Añade tu nuevo shield pin_tester aquí.
 
 include:
-  - board: nice_nano_v2
+  - board: promicro_nrf52840
     shield: pin_tester
