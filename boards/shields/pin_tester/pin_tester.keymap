@@ -17,17 +17,31 @@
                 &kp N8    //
                 &kp N9    // 
                 &kp N0    // 
-                &kp Q     // 
-                &kp W     // 
+                &kp A     // 
+                &kp B     // 
+                &kp C     // 
+                &kp D     // 
                 &kp E     // 
-                &kp R     // 
-                &kp T     // 
-                &kp Y     // 
-                &kp U     // 
+                &kp F     // 
+                &kp G     // 
+                &kp H     // 
                 &kp I     // 
-                &kp O     // Pad - P1.01
-                &kp P     // Pad - P1.02
-                &kp A     // Pad - P1.07
+                &kp J     // 
+                &kp K     // 
+                &kp L    // 
+                &kp M     // 
+                &kp N     // 
+                &kp O     // 
+                &kp P     // 
+                &kp Q     // 
+                &kp R     // 
+                &kp S     // 
+                &kp T     // 
+                &kp U     // 
+                &kp V     // 
+                &kp W     //
+                &kp X     // 
+                &kp Y     // 
             >;
         };
     };
