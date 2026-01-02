@@ -7,24 +7,24 @@
 
         default_layer {
             bindings = <
-                &kp N1    // D1 - P0.06
-                &kp N2    // D0 - P0.08
-                &kp N3    // D2 - P0.17
-                &kp N4    // D3 - P0.20
-                &kp N5    // D4 - P0.22
-                &kp N6    // D5 - P0.24
-                &kp N7    // D6 - P1.00
-                &kp N8    // D7 - P0.11
-                &kp N9    // D8 - P1.04
-                &kp N0    // D9 - P1.06
-                &kp Q     // D10 - P0.09
-                &kp W     // D16 - P0.10
-                &kp E     // D14 - P1.11
-                &kp R     // D15 - P1.13
-                &kp T     // D18 - P1.15
-                &kp Y     // D19 - P0.02
-                &kp U     // D20 - P0.29
-                &kp I     // D21 - P0.31
+                &kp N1    // 
+                &kp N2    // 
+                &kp N3    // 
+                &kp N4    // 
+                &kp N5    // 
+                &kp N6    // 
+                &kp N7    // 
+                &kp N8    //
+                &kp N9    // 
+                &kp N0    // 
+                &kp Q     // 
+                &kp W     // 
+                &kp E     // 
+                &kp R     // 
+                &kp T     // 
+                &kp Y     // 
+                &kp U     // 
+                &kp I     // 
                 &kp O     // Pad - P1.01
                 &kp P     // Pad - P1.02
                 &kp A     // Pad - P1.07
