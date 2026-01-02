@@ -7,36 +7,27 @@
 
         default_layer {
             bindings = <
-                &kp N1    // P0.02
-                &kp N2    // P0.03
-                &kp N3    // P0.04
-                &kp N4    // P0.05
-                &kp N5    // P0.06
-                &kp N6    // P0.07
-                &kp N7    // P0.08
-                &kp N8    // P0.11
-                &kp N9    // P0.12
-                &kp N0    // P0.15
-                &kp Q     // P0.16
-                &kp W     // P0.17
-                &kp E     // P0.20
-                &kp R     // P0.22
-                &kp T     // P0.26
-                &kp U     // P0.29
-                &kp I     // P0.30
-                &kp O     // P0.31
-                &kp P     // P1.01
-                &kp A     // P1.02
-                &kp S     // P1.03
-                &kp D     // P1.04
-                &kp F     // P1.05
-                &kp G     // P1.06
-                &kp H     // P1.07
-                &kp J     // P1.09
-                &kp K     // P1.10
-                &kp L     // P1.11
-                &kp Z     // P1.13
-                &kp X     // P1.15
+                &kp N1    // D1 - P0.06
+                &kp N2    // D0 - P0.08
+                &kp N3    // D2 - P0.17
+                &kp N4    // D3 - P0.20
+                &kp N5    // D4 - P0.22
+                &kp N6    // D5 - P0.24
+                &kp N7    // D6 - P1.00
+                &kp N8    // D7 - P0.11
+                &kp N9    // D8 - P1.04
+                &kp N0    // D9 - P1.06
+                &kp Q     // D10 - P0.09
+                &kp W     // D16 - P0.10
+                &kp E     // D14 - P1.11
+                &kp R     // D15 - P1.13
+                &kp T     // D18 - P1.15
+                &kp Y     // D19 - P0.02
+                &kp U     // D20 - P0.29
+                &kp I     // D21 - P0.31
+                &kp O     // Pad - P1.01
+                &kp P     // Pad - P1.02
+                &kp A     // Pad - P1.07
             >;
         };
     };
