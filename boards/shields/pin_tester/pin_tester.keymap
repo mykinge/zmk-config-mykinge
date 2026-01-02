@@ -28,7 +28,7 @@
                 &kp I     // 
                 &kp J     // 
                 &kp K     // 
-                &kp L    // 
+                &kp L     // 
                 &kp M     // 
                 &kp N     // 
                 &kp O     // 
@@ -39,9 +39,6 @@
                 &kp T     // 
                 &kp U     // 
                 &kp V     // 
-                &kp W     //
-                &kp X     // 
-                &kp Y     // 
             >;
         };
     };
