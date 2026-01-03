@@ -1,32 +1,71 @@
-{
+/ {
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
     };
 
     default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform-state";
-        rows = <3>;
-        cols = <3>;
+        compatible = "zmk,matrix-transform";
+        columns = <14>;
+        rows = <1>;
         map = <
-            0 0 0 1 0 2
-            1 0 1 1 1 2
-            2 0 2 1 2 2
+            RC(0,0)  RC(0,1)  RC(0,2)
+            RC(0,3)  RC(0,4)  RC(0,5)
+            RC(0,6)  RC(0,7)  RC(0,8)
+            RC(0,9)  RC(0,10) RC(0,11) RC(0,12) RC(0,13)
         >;
     };
 
-    kscan0: kscan_gpio_matrix {
+    kscan0: kscan {
+        compatible = "zmk,kscan-composite";
+        label = "KSCAN";
+        rows = <1>;
+        columns = <14>;
+
+        // Matriz 3x3 (primeros 9 inputs)
+        matrix {
+            kscan = <&kscan_matrix>;
+        };
+
+        // GPIO directo (siguientes 5 inputs)
+        direct {
+            kscan = <&kscan_direct>;
+            row-offset = <0>;
+            column-offset = <9>;
+        };
+    };
+
+    kscan_matrix: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN_3x3";
+        label = "MATRIX";
+        wakeup-source;
+        
         diode-direction = "col2row";
-        col-gpios =
-            <&pro_micro 13>,
-            <&pro_micro 14>,
-            <&pro_micro 15>;
-        row-gpios =
-            <&pro_micro 5>,
-            <&pro_micro 7>,
-            <&pro_micro 8>;
+        
+        col-gpios
+            = <&pro_micro 13 GPIO_ACTIVE_HIGH>  // Column1 - P0.17
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>  // Column2 - P0.20
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>  // Column3 - P0.22
+            ;
+        
+        row-gpios
+            = <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row1 - P0.06
+            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row2 - P0.08
+            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row3 - P0.11
+            ;
+    };
+
+    kscan_direct: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+        label = "DIRECT";
+        wakeup-source;
+
+        input-gpios
+            = <&pro_micro 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P0.02 - Leva 1
+            , <&pro_micro 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P0.29 - Leva 2
+            , <&pro_micro 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P0.31 - Alps 1
+            , <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P1.01 - Alps 2
+            , <&pro_micro 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P1.02 - Alps 3
+            ;
     };
 };
-
