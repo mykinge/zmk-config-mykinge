@@ -7,17 +7,40 @@
 
         default_layer {
             bindings = <
-                // Matriz 3x3 (9 switches) - Posiciones 0-8
-                &kp N1  &kp N2  &kp N3    // Row1: Col1, Col2, Col3
-                &kp N4  &kp N5  &kp N6    // Row2: Col1, Col2, Col3
-                &kp N7  &kp N8  &kp N9    // Row3: Col1, Col2, Col3
-                
-                // GPIO Directo (5 inputs) - Posiciones 9-13
-                &kp A   // Leva 1 (P0.02)
-                &kp B   // Leva 2 (P0.29)
-                &kp C   // Alps 1 (P0.31)
-                &kp D   // Alps 2 (P1.01)
-                &kp E   // Alps 3 (P1.02)
+                &kp N1   // P0.02
+                &kp N2   // P0.03
+                &kp N3   // P0.04
+                &kp N4   // P0.05
+                &kp N5   // P0.06
+                &kp N6   // P0.07
+                &kp N7   // P0.08
+                &kp N8   // P0.09
+                &kp N9   // P0.10
+                &kp N0   // P0.11
+                &kp Q    // P0.12
+                &kp W    // P0.15
+                &kp E    // P0.16
+                &kp R    // P0.17
+                &kp T    // P0.20
+                &kp Y    // P0.22
+                &kp U    // P0.24
+                &kp I    // P0.26
+                &kp O    // P0.29
+                &kp P    // P0.30
+                &kp A    // P0.31
+                &kp S    // P1.00
+                &kp D    // P1.01
+                &kp F    // P1.02
+                &kp G    // P1.03
+                &kp H    // P1.04
+                &kp J    // P1.05
+                &kp K    // P1.06
+                &kp L    // P1.07
+                &kp Z    // P1.09
+                &kp X    // P1.10
+                &kp C    // P1.11
+                &kp V    // P1.13
+                &kp B    // P1.15
             >;
         };
     };
