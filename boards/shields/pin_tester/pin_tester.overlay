@@ -6,62 +6,33 @@
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
-        columns = <14>;
-        rows = <1>;
+        rows = <3>;
+        columns = <3>;
         map = <
-            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6) RC(0,7) RC(0,8)
-            RC(0,9) RC(0,10) RC(0,11) RC(0,12) RC(0,13)
+            RC(0,0) RC(0,1) RC(0,2)
+            RC(1,0) RC(1,1) RC(1,2)
+            RC(2,0) RC(2,1) RC(2,2)
         >;
     };
 
     kscan0: kscan {
-        compatible = "zmk,kscan-composite";
-
-        rows = <1>;
-        columns = <14>;
-
-        // Matriz 3x3
-        matrix {
-            kscan = <&kscan_matrix>;
-        };
-
-        // GPIO directo
-        direct {
-            kscan = <&kscan_direct>;
-            row-offset = <0>;
-            column-offset = <9>;
-        };
-    };
-
-    kscan_matrix: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN_3x3";
         wakeup-source;
-        
+
+        // Diodos: columna -> fila (col2row)
         diode-direction = "col2row";
-        
-        col-gpios
-            = <&pro_micro 13 GPIO_ACTIVE_HIGH>  // Column1
-            , <&pro_micro 14 GPIO_ACTIVE_HIGH>  // Column2
-            , <&pro_micro 15 GPIO_ACTIVE_HIGH>  // Column3
-            ;
-        
-        row-gpios
-            = <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row1
-            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row2
-            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row3
-            ;
-    };
 
-    kscan_direct: kscan_direct {
-        compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;
+        // Columnas: las activas una a una (salida)
+        col-gpios =
+            <&pro_micro 13 GPIO_ACTIVE_HIGH>,  // Col 0
+            <&pro_micro 14 GPIO_ACTIVE_HIGH>,  // Col 1
+            <&pro_micro 15 GPIO_ACTIVE_HIGH>;  // Col 2
 
-        input-gpios
-            = <&pro_micro 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // Leva 1
-            , <&pro_micro 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // Leva 2
-            , <&pro_micro 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // Alps CLK o Switch
-            , <&pro_micro 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // Alps DT o HAT
-            , <&pro_micro 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // Alps o HAT
-            ;
+        // Filas: entradas con pull-down, activas en HIGH tras el diodo
+        row-gpios =
+            <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 0
+            <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 1
+            <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 2
     };
 };
