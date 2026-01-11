@@ -3,55 +3,22 @@
         zmk,kscan = &kscan0;
     };
 
-    kscan0: kscan_composite {
-        compatible = "zmk,kscan-composite";
-        label = "KSCAN";
-        rows = <4>;
-        columns = <3>;
-
-        // Matriz 3x3 primero
-        matrix {
-            kscan = <&kscan1>;
-        };
-
-        // GPIO directo desplazado debajo de la matriz
-        direct {
-            kscan = <&kscan2>;
-            row-offset = <3>;
-        };
-    };
-
-    kscan1: kscan_matrix {
+    kscan0: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "MATRIX";
         wakeup-source;
         
-        diode-direction = "col2row";
-        
-        col-gpios
-            = <&gpio0 17 GPIO_ACTIVE_HIGH>  // Column1 - P0.17
-            , <&gpio0 20 GPIO_ACTIVE_HIGH>  // Column2 - P0.20
-            , <&gpio0 22 GPIO_ACTIVE_HIGH>  // Column3 - P0.22
-            ;
+        diode-direction = "row2col";
         
         row-gpios
-            = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row1 - P0.06
-            , <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row2 - P0.08
-            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row3 - P0.11
+            = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Fila 1
+            , <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // Fila 2
             ;
-    };
-
-    kscan2: kscan_direct {
-        compatible = "zmk,kscan-gpio-direct";
-        label = "DIRECT";
-        wakeup-source;
-
-        input-gpios
-            = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P0.02 - Leva 1
-            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P0.29 - Leva 2
-            , <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P0.31 - Alps 1
-            , <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P1.01 - Alps 2
-            , <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P1.02 - Alps 3
+        
+        col-gpios
+            = <&gpio0 17 GPIO_ACTIVE_HIGH>  // Columna 1
+            , <&gpio0 20 GPIO_ACTIVE_HIGH>  // Columna 2
+            , <&gpio0 22 GPIO_ACTIVE_HIGH>  // Columna 3
+            , <&gpio0 24 GPIO_ACTIVE_HIGH>  // Columna 4
             ;
     };
 };

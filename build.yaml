@@ -4,5 +4,3 @@
 include:
   - board: nice_nano_v2
     shield: pin_tester
-  - board: nice_nano_v2
-    shield: settings_reset
