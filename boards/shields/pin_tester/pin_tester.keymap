@@ -7,9 +7,17 @@
 
         default_layer {
             bindings = <
-                // Matriz 2x4 (9 switches) - Posiciones 0-8
-                &kp N1  &kp N2  &kp N3 &kp N4   // Row1: Col1, Col2, Col3
-                &kp N5  &kp N6  &kp N7 &kp N8  // Row2: Col1, Col2, Col3
+                // Matriz 3x3 (9 switches) - Posiciones 0-8
+                &kp N1  &kp N2  &kp N3    // Row1: Col1, Col2, Col3
+                &kp N4  &kp N5  &kp N6    // Row2: Col1, Col2, Col3
+                &kp N7  &kp N8  &kp N9    // Row3: Col1, Col2, Col3
+                
+                // GPIO Directo (5 inputs) - Posiciones 9-13
+                &kp A   // Leva 1 (P0.02)
+                &kp B   // Leva 2 (P0.29)
+                &kp C   // Alps 1 (P0.31)
+                &kp D   // Alps 2 (P1.01)
+                &kp E   // Alps 3 (P1.02)
             >;
         };
     };
