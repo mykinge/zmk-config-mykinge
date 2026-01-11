@@ -7,40 +7,26 @@
 
         default_layer {
             bindings = <
-                &kp N1   // P0.02
-                &kp N2   // P0.03
-                &kp N3   // P0.04
-                &kp N4   // P0.05
-                &kp N5   // P0.06
-                &kp N6   // P0.07
-                &kp N7   // P0.08
-                &kp N8   // P0.09
-                &kp N9   // P0.10
-                &kp N0   // P0.11
-                &kp Q    // P0.12
-                &kp W    // P0.15
-                &kp E    // P0.16
-                &kp R    // P0.17
-                &kp T    // P0.20
-                &kp Y    // P0.22
-                &kp U    // P0.24
-                &kp I    // P0.26
-                &kp O    // P0.29
-                &kp P    // P0.30
-                &kp A    // P0.31
-                &kp S    // P1.00
-                &kp D    // P1.01
-                &kp F    // P1.02
-                &kp G    // P1.03
-                &kp H    // P1.04
-                &kp J    // P1.05
-                &kp K    // P1.06
-                &kp L    // P1.07
-                &kp Z    // P1.09
-                &kp X    // P1.10
-                &kp C    // P1.11
-                &kp V    // P1.13
-                &kp B    // P1.15
+                // Matriz 2x4 (8 botones) - Posiciones 0-7
+                &kp N1  &kp N2  &kp N3  &kp N4    // Fila 1
+                &kp N5  &kp N6  &kp N7  &kp N8    // Fila 2
+                
+                // GPIO Directo (15 pines) - Posiciones 8-22
+                &kp A   // P0.02
+                &kp B   // P0.11
+                &kp C   // P0.09
+                &kp D   // P0.10
+                &kp E   // P0.29
+                &kp F   // P0.31
+                &kp G   // P1.00
+                &kp H   // P1.01
+                &kp I   // P1.02
+                &kp J   // P1.04
+                &kp K   // P1.06
+                &kp L   // P1.07
+                &kp M   // P1.11
+                &kp N   // P1.13
+                &kp O   // P1.15
             >;
         };
     };
