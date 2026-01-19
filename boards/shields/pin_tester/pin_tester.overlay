@@ -21,8 +21,8 @@
 
     kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
-        rows = <2>;
-        columns = <18>;
+        rows = <4>;
+        columns = <4>;
 
         matrix {
             kscan = <&kscan_matrix>;
@@ -30,7 +30,7 @@
 
         direct {
             kscan = <&kscan_direct>;
-            column-offset = <4>;
+            row-offset = <2>;
         };
     };
 
