@@ -11,23 +11,24 @@
                 &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N4
                 &kp KP_N5  &kp KP_N6  &kp KP_N7  &kp KP_N8
                 
-                // GPIO Directo (15 pines)
+                // GPIO Directo (13 pines)
+                &kp KP_DOT       // P1.00 - Switch del encoder (presionar encoder)
                 &kp KP_N9        // P0.02
-                &kp KP_N0        // P0.11
-                &kp KP_PLUS      // P0.09
-                &kp KP_MINUS     // P0.10
+                &kp F1           // P0.09
+                &kp F2           // P0.10
                 &kp KP_MULTIPLY  // P0.29
                 &kp KP_DIVIDE    // P0.31
-                &kp KP_DOT       // P1.00
-                &kp KP_ENTER     // P1.01
-                &kp F1           // P1.02
-                &kp F2           // P1.04
-                &kp F3           // P1.06
-                &kp F4           // P1.07
-                &kp F5           // P1.11
-                &kp F6           // P1.13
-                &kp F7           // P1.15
+                &kp F3           // P1.01
+                &kp F4           // P1.02
+                &kp F5           // P1.06
+                &kp F6           // P1.07
+                &kp F7           // P1.11
+                &kp F8           // P1.13
+                &kp F9           // P1.15
             >;
+            
+            // Encoder: giro derecha = KP_PLUS (+), giro izquierda = KP_MINUS (-)
+            sensor-bindings = <&inc_dec_kp KP_PLUS KP_MINUS>;
         };
     };
 };

@@ -3,10 +3,26 @@
         zmk,kscan = &kscan0;
     };
 
+    // Definir el encoder EC11
+    encoder1: encoder_1 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // P0.11 (CLK)
+        b-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;   // P1.04 (DT)
+        steps = <80>;
+        status = "okay";
+    };
+
+    // Registro de sensors para el encoder
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder1>;
+        triggers-per-rotation = <20>;
+    };
+
     kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
-        rows = <6>;
-        columns = <4>;
+        rows = <2>;
+        columns = <18>;
 
         matrix {
             kscan = <&kscan_matrix>;
@@ -14,7 +30,7 @@
 
         direct {
             kscan = <&kscan_direct>;
-            row-offset = <2>;
+            column-offset = <4>;
         };
     };
 
@@ -42,21 +58,19 @@
         wakeup-source;
 
         input-gpios
-            = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            = <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P1.00 - Switch del encoder
+            , <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P0.02
+            , <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P0.09
+            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P0.10
+            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P0.29
+            , <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P0.31
+            , <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P1.01
+            , <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P1.02
+            , <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P1.06
+            , <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>   // P1.07
+            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P1.11
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P1.13
+            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  // P1.15
             ;
     };
 };
